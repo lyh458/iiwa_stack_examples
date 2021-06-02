@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 2.8.3)
 project(iiwa_tool_examples)
 
 set(CMAKE_CXX_FLAGS "-std=c++11 ${CMAKE_CXX_FLAGS}")
+SET(CMAKE_BUILD_TYPE "RelWithDebInfo")
 
 find_package(catkin REQUIRED COMPONENTS
   roscpp
@@ -26,3 +27,6 @@ target_link_libraries(command_robot_moveit ${catkin_LIBRARIES})
 add_executable(setting_control_mode src/setting_control_mode.cpp)
 add_dependencies(setting_control_mode iiwa_msgs_generate_messages_cpp)
 target_link_libraries(setting_control_mode ${catkin_LIBRARIES})
+
+add_executable(set_target_position src/set_target_position.cpp)
+target_link_libraries(set_target_position ${catkin_LIBRARIES})
